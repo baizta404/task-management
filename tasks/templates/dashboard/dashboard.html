@@ -1,12 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Towhids Practice:3.5</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static "css/output.css" %}">
+    <style>
+      .inter-font {
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+      }
+    </style>
   </head>
-  <body class="p-6 bg-gray-100">
+  <body class="p-6 bg-gray-100 inter-font">
     <div class="max-w-[1400px] mx-auto">
       <!-- header -->
       <header class="flex justify-between items-center mb-8">
@@ -37,7 +52,7 @@
       </header>
 
       <main>
-        <!-- status grid -->
+        {% comment %} status grid {% endcomment %}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <!-- total task -->
           <div class="shadow-sm bg-white p-5 rounded-lg">
@@ -163,132 +178,11 @@
           </div>
         </div>
 
-        <!-- tasks grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
-          <!-- todays task -->
-          <div class="shadow-sm bg-white p-5 rounded-lg">
-            <h3 class="text-xl md:text-2xl font-bold mb-4">Today's Tasks</h3>
-            <!-- green -->
-            <div class="flex justify-between items-center mb-3">
-              <div class="flex gap-4 items-center">
-                <div class="h-2 w-2 rounded-full bg-green-500"></div>
-                <p class="font-medium">Complete project proposal</p>
-              </div>
-              <div>
-                <p class="text-gray-500 font-medium">High</p>
-              </div>
-            </div>
-            <!-- orange -->
-            <div class="flex justify-between items-center mb-3">
-              <div class="flex gap-4 items-center">
-                <div class="h-2 w-2 rounded-full bg-orange-500"></div>
-                <p class="font-medium">Review team updates</p>
-              </div>
-              <div>
-                <p class="text-gray-500 font-medium">Normal</p>
-              </div>
-            </div>
-            <!-- blue -->
-            <div class="flex justify-between items-center mb-3">
-              <div class="flex gap-4 items-center">
-                <div class="h-2 w-2 rounded-full bg-blue-600"></div>
-                <p class="font-medium">Prepare for client meeting</p>
-              </div>
-              <div>
-                <p class="text-gray-500 font-medium">Low</p>
-              </div>
-            </div>
-          </div>
+        {% block tasks %}
+        
+        
+        {% endblock tasks %}
 
-          <!-- all task -->
-          <div class="shadow-sm bg-white p-5 rounded-lg">
-            <h3 class="text-xl md:text-2xl font-bold mb-4">All Tasks</h3>
-            <div>
-                <!-- 1st -->
-              <div class="grid grid-cols-4 md:gap-6 mb-3">
-                <div class="font-medium text-gray-500 uppercase">
-                  task title
-                </div>
-                <div class="font-medium text-gray-500 uppercase">priority</div>
-                <div class="font-medium text-gray-500 uppercase">team</div>
-                <div class="font-medium text-gray-500 uppercase">
-                  created at
-                </div>
-              </div>
-              <!-- 2nd -->
-              <div class="grid grid-cols-4 md:gap-6 mb-3 text-sm font-medium  items-center">
-                <div class="">
-                  <div class="flex gap-4 items-center">
-                    <div class="h-2 w-2 rounded-full bg-green-500"></div>
-                    <p class="">Test Low Task</p>
-                  </div>
-                </div>
-                <div>
-                    <span class="px-2 bg-violet-100 text-violet-800 rounded-sm">Low</span>
-                </div>
-                <div class="flex -space-x-2">
-                    <div class="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs  border-2 border-white">CA
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-green-500 flex items-center justify-center text-white text-xs  border-2 border-white">JC
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs  border-2 border-white">B
-                    </div>
-                </div>
-                <div class="text-gray-500">
-                  9 months ago
-                </div>
-              </div>
-              <!-- 3rd -->
-               <div class="grid grid-cols-4 md:gap-6 mb-3 text-sm font-medium  items-center">
-                <div class="">
-                  <div class="flex gap-4 items-center">
-                    <div class="h-2 w-2 rounded-full bg-green-500"></div>
-                    <p class="">Test Task</p>
-                  </div>
-                </div>
-                <div>
-                    <span class="px-2 bg-green-100 text-green-800 rounded-sm">Normal</span>
-                </div>
-                <div class="flex -space-x-2">
-                    <div class="w-7 h-7 rounded-full bg-red-500 flex items-center justify-center text-white text-xs  border-2 border-white">A
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs  border-2 border-white">EV
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs  border-2 border-white">B
-                    </div>
-                </div>
-                <div class="text-gray-500">
-                  9 months ago
-                </div>
-              </div>
-              <!-- 4th -->
-               <div class="grid grid-cols-4 md:gap-6 mb-3 text-sm font-medium  items-center">
-                <div class="">
-                  <div class="flex gap-4 items-center">
-                    <div class="h-2 w-2 rounded-full bg-green-500"></div>
-                    <p class="">Test Task</p>
-                  </div>
-                </div>
-                <div>
-                    <span class="px-2 bg-red-100 text-red-800 rounded-sm">High</span>
-                </div>
-                <div class="flex -space-x-2">
-                    <div class="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs  border-2 border-white">CA
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-green-500 flex items-center justify-center text-white text-xs  border-2 border-white">JS
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-red-500 flex items-center justify-center text-white text-xs  border-2 border-white">A
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs  border-2 border-white">B
-                    </div>
-                </div>
-                <div class="text-gray-500">
-                  10 months ago
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </main>
     </div>
   </body>
