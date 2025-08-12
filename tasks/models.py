@@ -5,6 +5,9 @@ class Employee(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 #Many to One Relationship
 class Project(models.Model):
@@ -48,4 +51,4 @@ class TaskDetails(models.Model):
 # >>> employee = Employee.objects.create(name="Romjan Ali",email="ramjan@gmail.com")
 # >>> employee2 = Employee.objects.create(name="Minjaj Adil",email="minhaj@gmail.com")
 # >>> task = Task.objects.create(title="Notun taska ri",description="Ki ar hoibo re bhai emni",due_date ="2025-12-25")
-# >>> task.assigned_to.add(employee)ta
+# >>> task.assigned_to.add(employee)
