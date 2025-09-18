@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task Form</title>
+    <link rel="stylesheet" href="{% static "CSS/output.css" %}">
+</head>
+<body>
+
+    <div class="w-1/2 mx-auto mt-8">
+        <input type="text" class="border-2 border-gray-300 w-full rounded-lg shadow-sm resize-none" name="" id="" placeholder="Enter something!!">
+        {% if message %}
+            <p>
+                {{message}}
+            </p>
+            <hr>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="bg-rose-500 text-white rounded-lg py-2 px-3">submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>

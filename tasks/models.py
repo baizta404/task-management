@@ -7,11 +7,16 @@ class Project(models.Model):
     name = models.CharField(max_length=100)
     start_date = models.DateField()
 
+    def __str__(self):
+        return self.name
 # Task er sathe Employee er many to many thakete pare
 # 1 ta employee : Onekgula Task || 1 ta task : onek jon employee
 class Employee(models.Model):
     name = models.CharField(max_length=150)
     email = models.EmailField(unique=True)
+
+    def __str__(self):
+        return self.name
 
 class Task(models.Model):
     #Project er sathe many to one
@@ -29,6 +34,9 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
 
 # one to one 1ta task er sudhu 1 ta details thakbe
 class TaskDetail(models.Model):
