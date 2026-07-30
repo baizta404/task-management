@@ -1,0 +1,15 @@
+.bg-red{
+    background-color: red;
+    font-weight: 800;
+    font-style: italic;
+    width: 180px;
+    height: 180px;
+    margin-left: auto;
+    color: white;
+    margin-right: auto;
+}
+
+.rana{
+    background-color: green;
+    color: white;
+}
