@@ -1,15 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Form</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
-<body>
-    <form  method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Submit</button>
-    </form>
+<body class="">
+    <div class="w-1/2 mx-auto"> 
+        <div>
+            {% if message %}
+            <p>
+                {{message}}
+            </p>{% endif %}
+        </div>
+        <form  method="post">
+            {% comment %} <input type="text" class="border border-red-900 w-full rounded-lg shadow-md" placeholder="Enter What You Love"> {% endcomment %}
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="bg-red-600 text-white px-3 py-2 rounded-md">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
