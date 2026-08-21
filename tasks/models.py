@@ -53,5 +53,3 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
-
-#7.3 retriving => start
