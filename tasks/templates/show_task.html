@@ -7,16 +7,14 @@
 </head>
 <body>
     <div>
+        <h4>Tasks in terms of priority</h4>
         <ul>
-            {% for task in tasks %}
-                <li>{{task}}</li>
-            {% endfor %}
-        </ul>
-        <br>
-        <ul>
+            {% for task in priority_tasks  %}
             <li>
-                {{task3}}
+                {{task.task.title}}
             </li>
+            <p>Priority : {{task.priority}} </p>
+            {% endfor %}
         </ul>
     </div>
 </body>
